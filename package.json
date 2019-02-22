@@ -1,0 +1,19 @@
+{
+  "name": "mealogram",
+  "version": "1.0.0",
+  "description": "Software Development Project II",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shubham Raichandel",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cash": "0.0.3",
+    "@types/jquery": "^3.3.29",
+    "@types/materialize-css": "^1.0.6",
+    "jquery": "^3.3.1",
+    "materialize-css": "^1.0.0",
+    "nodemon": "^1.18.10"
+  }
+}

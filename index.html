@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono">
+    <!--CSS-->
+    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="Assets/style.css">
+    <!--Material Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <title>Mealogram</title>
+</head>
+
+<body>
+
+
+    <!--Nav Bar-->
+
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="#" class="brand-logo"><i class="material-icons left">local_dining</i>TDB</a>
+                <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#calbmr">Calorie Calculator</a></li>
+                    <li><a href="#meal">Meal Plan</a></li>
+                    <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center" onclick="mainApp.logOut()">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#calbmr">Calorie Calculator</a></li>
+        <li><a href="#getMealPlan">Meal Plan</a></li>
+        <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center" onclick="mainApp.logOut()">Logout</button></li>
+    </ul>
+
+    <!-- Parallax-->
+
+    <div class="parallax-container">
+        <div class="parallax"><img class="col s2" src="http://www.artangosteakhouse.com/wp-content/uploads/2015/04/greg.jpg"></div>
+    </div>
+
+
+    <!--Landing Page-->
+
+
+    <!--BMR-->
+
+    <div id="calbmr" class="container section ">
+
+        <!--BMI Calculator-->
+        <h4 class="header center-align">Let's see how much calories do you need in a day...</h4>
+
+
+        <div class="row">
+
+            <div class="col m5 s12 offset-m3">
+                <div class="card-panel z-depth-2">
+
+                    <div class="input-field ">
+                        <input id="height" type="text" class="validate">
+                        <label for="height">Height</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="weight" type="text" class="validate">
+                        <label for="weight">Weight</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="age" type="text" class="validate">
+                        <label for="age">Age</label>
+                    </div>
+                    <div class="input-field">
+                        <p>
+                            <label>
+                                <input class="with-gap" name="group" type="radio" checked />
+                                <span>Male</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="group" type="radio" />
+                                <span>Female</span>
+                            </label>
+                        </p>
+                    </div>
+                    <p class="center-align">
+                        <Button id="btn-bmr" class="btn waves-effect waves-dark red lighten-1"><i class="material-icons right">sync</i>Calculate</Button>
+                        <p>
+
+                </div>
+
+            </div>
+
+            <div class="col m4 s12" id="bmr-calculator">
+                <h3 class="center">Result</h3>
+
+                <h5 class="center">BMI : <b id="bmi-output"> </b></h5>
+                <h6 class="center" id="bmi-result"> </h6>
+
+
+                <div class="card-panel">
+                    <h6 class="center"><span class="flow-text" id="bmr-output"></span></h6>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <!--End Of BMR-->
+
+
+    <!-- Parallax-->
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="https://i.pinimg.com/originals/96/6f/9c/966f9c7d86e6f699aeba0a5bdec54cc3.jpg"></div>
+    </div>
+
+    <!--Index-->
+    <div id="getMealPlan" class="container">
+
+        <h4 class="header center">Let's plan your meal...</h4><br />
+        <div class="row">
+            <!-- 
+              <div class="col m3 offset-m1 s12">
+                    <div class="card-panel">
+                        <h6>How many meals do you ( or want to have ) in a day?</h6>
+                        <select  class="browser-default" id="mealCount">
+                                <option value="2" >Two</option>
+                                <option value="3" selected="true">Three</option>
+                                <option value="5">Five</option>
+                        </select>
+                    </div>
+                </div>
+              -->
+            <div class="col m4 offset-m1 s12">
+                <div class="card-panel">
+                    <h6>Any dietary preferences?</h6>
+                    <div class="input-field">
+                        <p>
+                            <label>
+                                <input class="with-gap" value="balanced" name="diet" type="radio" checked onclick="dietSpecific()" />
+                                <span>Balanced</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" value="low-carb" name="diet" type="radio" onclick="dietSpecific()" />
+                                <span>Low Carb</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" value="low-fat" name="diet" type="radio" onclick="dietSpecific()" />
+                                <span>Low Fat</span>
+                            </label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col m6 s12">
+                <div class=card-panel>
+                    <h6>Any health preferences?</h6>
+                    <div class=input-field>
+                        <p>
+                            <label>
+                                <input name="health" value="vegan" type="checkbox" />
+                                <span>Vegan (No meat, poultry, fish, dairy, eggs or honey)</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="health" value="vegetarian" type="checkbox" />
+                                <span>Vegetarian (No wheat, can have gluten though)</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="health" value="alcohol-free" type="checkbox" />
+                                <span>Alcohol-free (No alcohol used or contained)</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input name="health" value="peanut-free" type="checkbox" />
+                                <span>Peanut Free (No peanuts or products containing peanuts)</span>
+                            </label>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="center">
+                <a href="#meal"><button class="waves-effect waves-light btn red lighten-1" onclick="execute()"><i class="material-icons right">local_dining</i>Get
+                        Plan!</button></a>
+            </div>
+        </div>
+    </div>
+    <!-- End Of Index-->
+
+    <br>
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="https://images.wallpaperscraft.com/image/food_table_cafe_snack_sauce_coca_43756_1920x1080.jpg"></div>
+    </div>
+
+    <!--meal-->
+
+    <div id="meal" class="container">
+
+        <h4 class="header center">Your custom meal plan is ready... </h4>
+
+        <div class="col s12 m12">
+            <ul class="tabs tabs-fixed-width">
+                <li class="tab col m2 s3"><a class="active" href="#mon">Mon</a></li>
+                <li class="tab col m2 s3"><a href="#tue">Tue</a></li>
+                <li class="tab col m2 s3"><a href="#wed">Wed</a></li>
+                <li class="tab col m1 s3"><a href="#thu">Thu</a></li>
+                <li class="tab col m1 s3"><a href="#fri">Fri</a></li>
+                <li class="tab col m2 s3"><a href="#sat">Sat</a></li>
+                <li class="tab col m2 s3"><a href="#sun">Sun</a></li>
+            </ul>
+        </div>
+
+
+        <!---------------Monday----------------------->
+        <div id="mon" class="col s12">
+            <div class="row">
+                <div class="col m4">
+                    <h4 class="center">Breakfast</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="BreakfastImage0" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="BreakfastTitle0">Card Title</b></span>
+                            <div class="text-darken-3 left" id="BreakfastHealthLabel0"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal0"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="BreakfastIngr0" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="BreakfastLink0">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col m4">
+                    <h4 class="center">Lunch</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="LunchImage0" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="LunchTitle0">Card Title</b></span>
+                            <div class="text-darken-3 left" id="LunchHealthLabel0"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal0"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="LunchIngr0" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="LunchLink0">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col m4">
+                    <h4 class="center">Dinner</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="DinnerImage0" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="DinnerTitle0">Card Title</b></span>
+                            <div class="text-darken-3 left" id="DinnerHealthLabel0"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal0"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <li id="DinnerIngr0" class="left"></li>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="DinnerLink0">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Mon Ends-->
+
+        <!---------------Tuesday----------------------->
+        <div id="tue" class="col s12">
+            <div class="row">
+                <div class="col m4">
+                    <h4 class="center">Breakfast</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="BreakfastImage1" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="BreakfastTitle1">Card Title</b></span>
+                            <div class="text-darken-3 left" id="BreakfastHealthLabel1"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal1"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="BreakfastIngr1" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="BreakfastLink1">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Lunch</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="LunchImage1" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="LunchTitle1">Card Title</b></span>
+                            <div class="text-darken-3 left" id="LunchHealthLabel1"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal1"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="LunchIngr1" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="LunchLink1">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col m4">
+                    <h4 class="center">Dinner</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="DinnerImage1" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="DinnerTitle1">Card Title</b></span>
+                            <div class="text-darken-3 left" id="DinnerHealthLabel1"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal1"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="DinnerIngr1" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="DinnerLink1">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Tue Ends-->
+
+        <!----------------Wednesday-------------------->
+        <div id="wed" class="col s12">
+
+            <div class="row">
+                <div class="col m4">
+                    <h4 class="center">Breakfast</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="BreakfastImage2" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="BreakfastTitle2">Card Title</b></span>
+                            <div class="text-darken-3 left" id="BreakfastHealthLabel2"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal2"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="BreakfastIngr2" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="BreakfastLink2">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Lunch</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="LunchImage2" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="LunchTitle2">Card Title</b></span>
+                            <div class="text-darken-3 left" id="LunchHealthLabel2"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal2"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="LunchIngr2" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="LunchLink2">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Dinner</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="DinnerImage2" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="DinnerTitle2">Card Title</b></span>
+                            <div class="text-darken-3 left" id="DinnerHealthLabel2"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal2"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="DinnerIngr2" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="DinnerLink2">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!---Wed Ends-->
+
+        <!----------------Thursday-------------------->
+        <div id="thu" class="col s12">
+
+            <div class="row">
+                <div class="col m4">
+                    <h4 class="center">Breakfast</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="BreakfastImage3" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="BreakfastTitle3">Card Title</b></span>
+                            <div class="text-darken-3 left" id="BreakfastHealthLabel3"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal3"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="BreakfastIngr3" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="BreakfastLink3">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Lunch</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="LunchImage3" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="LunchTitle3">Card Title</b></span>
+                            <div class="text-darken-3 left" id="LunchHealthLabel3"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal3"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="LunchIngr3" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="LunchLink3">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Dinner</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="DinnerImage3" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="DinnerTitle3">Card Title</b></span>
+                            <div class="text-darken-3 left" id="DinnerHealthLabel3"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal3"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="DinnerIngr3" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="DinnerLink3">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!---Thu Ends-->
+
+        <!----------------Friday---------------------->
+        <div id="fri" class="col s12">
+
+            <div class="row">
+                <div class="col m4">
+                    <h4 class="center">Breakfast</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="BreakfastImage4" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="BreakfastTitle4">Card Title</b></span>
+                            <div class="text-darken-3 left" id="BreakfastHealthLabel4"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal4"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="BreakfastIngr4" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="BreakfastLink4">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Lunch</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="LunchImage4" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="LunchTitle4">Card Title</b></span>
+                            <div class="text-darken-3 left" id="LunchHealthLabel4"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal4"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="LunchIngr4" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="LunchLink4">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Dinner</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="DinnerImage4" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="DinnerTitle4">Card Title</b></span>
+                            <div class="text-darken-3 left" id="DinnerHealthLabel4"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal4"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="DinnerIngr4" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="DinnerLink4">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!---Fri Ends-->
+
+        <!----------------Saturday-------------------->
+        <div id="sat" class="col s12">
+
+            <div class="row">
+                <div class="col m4">
+                    <h4 class="center">Breakfast</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="BreakfastImage5" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="BreakfastTitle5">Card Title</b></span>
+                            <div class="text-darken-3 left" id="BreakfastHealthLabel5"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal5"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="BreakfastIngr5" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="BreakfastLink5">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Lunch</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="LunchImage5" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="LunchTitle5">Card Title</b></span>
+                            <div class="text-darken-3 left" id="LunchHealthLabel5"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal5"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="LunchIngr5" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="LunchLink5">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Dinner</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="DinnerImage5" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="DinnerTitle5">Card Title</b></span>
+                            <div class="text-darken-3 left" id="DinnerHealthLabel5"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal5"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="DinnerIngr5" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="DinnerLink5">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!---Sat Ends-->
+
+        <!----------------Sunday-------------------->
+        <div id="sun" class="col s12">
+
+            <div class="row">
+                <div class="col m4">
+                    <h4 class="center">Breakfast</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="BreakfastImage6" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="BreakfastTitle6">Card Title</b></span>
+                            <div class="text-darken-3 left" id="BreakfastHealthLabel6"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal6"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="BreakfastIngr6" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="BreakfastLink6">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Lunch</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="LunchImage6" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="LunchTitle6">Card Title</b></span>
+                            <div class="text-darken-3 left" id="LunchHealthLabel6"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal6"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="LunchIngr6" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="LunchLink6">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col m4">
+                    <h4 class="center">Dinner</h4>
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" id="DinnerImage6" src="images/office.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator"><b id="DinnerTitle6">Card Title</b></span>
+                            <div class="text-darken-3 left" id="DinnerHealthLabel6"><br></div>
+
+                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal6"></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                            <br>
+                            <span id="DinnerIngr6" class="left"></span>
+                        </div>
+                        <div class="card-action">
+
+                            <a href="" id="DinnerLink6">Recipe link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!---Sun Ends-->
+
+
+
+    </div>
+
+
+    <!-- End of Meal -->
+
+
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                Developed By Nutrition Web APP Team
+                <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.parallax').parallax();
+            $('.tabs').tabs();
+        });
+    </script>
+
+
+
+
+
+
+    <!-- Scripts-->
+    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
