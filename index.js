@@ -3,11 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Parallax.init(elems, options);
   });
 
-
-
-
 document.getElementById("bmr-calculator").hidden = true;
 document.getElementById("meal").hidden = true;
+document.getElementById("calculator").hidden = false;
 
 var btnBmr = document.getElementById("btn-bmr");            // Btn for Calculating BMR
 var genderGroup = document.getElementsByName("group");      // Radio group
@@ -22,6 +20,7 @@ var bmiResult;
 btnBmr.addEventListener("click", function(){
 
     document.getElementById("bmr-calculator").hidden = false;
+    document.getElementById("calculator").hidden = true;
     var height = document.getElementById("height").value;
     var weight = document.getElementById("weight").value;
     var age =  document.getElementById("age").value;
@@ -107,6 +106,18 @@ function calBMI(bmi){
     }    
 
 };
+
+
+function recalculate(){
+
+    
+    document.getElementById("calculator").hidden = true;
+
+    console.log("Recal")
+
+  };
+
+
 
 
 /** End of BMR and BMI */

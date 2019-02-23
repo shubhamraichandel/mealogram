@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono">
+    <!--CSS-->
+    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="Assets/grocery.css">
+    <!--Material Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>Mealogram</title>
+</head>
+
+<body>
+
+    <!--Nav Bar-->
+
+    <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <a href="#" class="brand-logo">Mealogram</a>
+                    <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/index.html">Home</a></li>
+                        <li class="active"><a href="/grocery.html" class="active">Grocery List</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <ul class="sidenav" id="mobile-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#calbmr">Calorie Calculator</a></li>
+            <li><a href="#getMealPlan">Meal Plan</a></li>
+        </ul>
+        <div class="heros">
+                <div class="container box">
+                    <h1 class="display-2 text-center left-align">Grocery List</h1>
+                    <p class="lead text-center">Add item to your shopping list</p>
+                    <div class="row">
+                        <div class="col s12">
+                        <form id="form" >
+                            <div class="input-field col s12">                               
+                                <input id="input" placeholder="Enter an item">                              
+                                <span>
+                                    <button id="btn" type="button" class="btn btn-primary">Submit</button>
+                                </span>
+                            </div>			     
+                        </form>
+                        </div>
+                    </div>			
+                    <div class="row">				
+                        <ul id="list" class="list col s12 ">
+                            <!--
+                            <li><label><input/><span>List1</span></label></li>
+                            -->
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col s8">
+                        <button id="btnClr" type="button" class="btn btn-primary btnHide">Clear</button>
+                        </div>
+                    </div>				
+                </div>
+        </div>
+
+    <!-- Scripts-->
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+
+    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+
+    <script src="grocery.js"></script>
+
+</body>
+
+</html>

@@ -22,15 +22,13 @@
     <!--Nav Bar-->
 
     <nav>
-        <div class="nav-wrapper">
+        <div class="nav-extended">
             <div class="container">
-                <a href="#" class="brand-logo"><i class="material-icons left">local_dining</i>TDB</a>
+                <a href="#" class="brand-logo">Mealogram</a>
                 <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#calbmr">Calorie Calculator</a></li>
-                    <li><a href="#meal">Meal Plan</a></li>
-                    <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center" onclick="mainApp.logOut()">Logout</button></li>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="/grocery.html">Grocery List</a></li>
                 </ul>
             </div>
         </div>
@@ -38,15 +36,15 @@
 
     <ul class="sidenav" id="mobile-links">
         <li><a href="#">Home</a></li>
-        <li><a href="#calbmr">Calorie Calculator</a></li>
-        <li><a href="#getMealPlan">Meal Plan</a></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/grocery.html">Grocery List</a></li>
         <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center" onclick="mainApp.logOut()">Logout</button></li>
     </ul>
 
     <!-- Parallax-->
 
     <div class="parallax-container">
-        <div class="parallax"><img class="col s2" src="http://www.artangosteakhouse.com/wp-content/uploads/2015/04/greg.jpg"></div>
+        <div class="parallax"><img class="col s2" src="https://wallup.net/wp-content/uploads/2018/09/26/4281-dinner-table-748x468.jpg" class="responsive-img"></div>
     </div>
 
 
@@ -62,17 +60,17 @@
 
 
         <div class="row">
-
-            <div class="col m5 s12 offset-m3">
+               <!-- <div class="col m5 s12 offset-m3" id="calculator"> -->
+            <div class="col m5 s12 offset-m3" id="calculator">
                 <div class="card-panel z-depth-2">
 
                     <div class="input-field ">
                         <input id="height" type="text" class="validate">
-                        <label for="height">Height</label>
+                        <label for="height">Height in cm</label>
                     </div>
                     <div class="input-field">
                         <input id="weight" type="text" class="validate">
-                        <label for="weight">Weight</label>
+                        <label for="weight">Weight in kg</label>
                     </div>
                     <div class="input-field">
                         <input id="age" type="text" class="validate">
@@ -93,14 +91,14 @@
                         </p>
                     </div>
                     <p class="center-align">
-                        <Button id="btn-bmr" class="btn waves-effect waves-dark red lighten-1"><i class="material-icons right">sync</i>Calculate</Button>
+                        <Button id="btn-bmr" class="btn waves-effect waves-dark btn-block lighten-1"><i class="material-icons right">sync</i>Calculate</Button>
                         <p>
 
                 </div>
 
             </div>
 
-            <div class="col m4 s12" id="bmr-calculator">
+            <div class="col m5 s12 offset-m3" id="bmr-calculator">
                 <h3 class="center">Result</h3>
 
                 <h5 class="center">BMI : <b id="bmi-output"> </b></h5>
@@ -110,6 +108,11 @@
                 <div class="card-panel">
                     <h6 class="center"><span class="flow-text" id="bmr-output"></span></h6>
                 </div>
+
+                <div class="center"><button onclick="recalculate()" class="btn red">Recalculate</button></div>
+
+                
+
             </div>
 
 
@@ -123,7 +126,7 @@
     <!-- Parallax-->
 
     <div class="parallax-container">
-        <div class="parallax"><img src="https://i.pinimg.com/originals/96/6f/9c/966f9c7d86e6f699aeba0a5bdec54cc3.jpg"></div>
+        <div class="parallax"><img src="https://static.vecteezy.com/system/resources/previews/000/134/503/non_2x/free-vector-food-illustration.jpg"></div>
     </div>
 
     <!--Index-->
@@ -214,7 +217,7 @@
     <br>
 
     <div class="parallax-container">
-        <div class="parallax"><img src="https://images.wallpaperscraft.com/image/food_table_cafe_snack_sauce_coca_43756_1920x1080.jpg"></div>
+        <div class="parallax"><img src="https://static.vecteezy.com/system/resources/previews/000/134/503/non_2x/free-vector-food-illustration.jpg"></div>
     </div>
 
     <!--meal-->
@@ -806,8 +809,8 @@
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
-                Developed By Nutrition Web APP Team
-                <a class="grey-text text-lighten-4 right" href="#!"></a>
+                    <a class="grey-text text-lighten-4 left" href="https://github.com/shubhamraichandel/mealogram">Developed By Team-Mealogram</a>
+
             </div>
         </div>
     </footer>
@@ -821,11 +824,6 @@
             $('.tabs').tabs();
         });
     </script>
-
-
-
-
-
 
     <!-- Scripts-->
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
