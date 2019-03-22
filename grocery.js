@@ -80,7 +80,7 @@ window.onload = function() {
 		todoList.forEach(function(element) {
 			console.log(element.item)
 			var text = element.item;
-			var item = `<li id="li-${id}"><label><input id="box-${id}"  type="checkbox"><span>${text}</span></label></li>`;
+h
 			list.insertAdjacentHTML("beforeend", item);
 			//if we got a checked box, then style
 			if(element.checked) {

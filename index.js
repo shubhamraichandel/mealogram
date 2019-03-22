@@ -1,6 +1,21 @@
+var config = {
+    apiKey: "AIzaSyD8SfZs5mKZGSHH5Uo5XmjqhkaA1L4DNgo",
+    authDomain: "mealo-d7871.firebaseapp.com",
+    databaseURL: "https://mealo-d7871.firebaseio.com",
+    projectId: "mealo-d7871",
+    storageBucket: "mealo-d7871.appspot.com",
+    messagingSenderId: "425720264223"
+};
+firebase.initializeApp(config);
+
+
+var user1 = "HumhuUser1";
+var user2 = "HumhuUser2";
+
+var database = firebase.database().ref();
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.parallax');
-    var instances = M.Parallax.init(elems, options);
+    //var instances = M.Parallax.init(elems, options);
   });
 
 document.getElementById("bmr-calculator").hidden = true;
@@ -14,6 +29,7 @@ var bmr;
 var bmi;
 
 var bmiResult;
+
 
 /** Function for BMI and BMR */
 
@@ -50,11 +66,12 @@ btnBmr.addEventListener("click", function(){
     minCalories = Math.round((bmr - 200)/mealCount);
     maxCalories = Math.round(bmr/mealCount);
 
+
   
     document.getElementById("bmi-output").innerHTML = Number(bmi).toFixed(2);
     document.getElementById("bmr-output").innerHTML = bmr + " Kcals/Day";
     
-    buildQ();
+   // buildQ();
 
     // Checking Values in Console
     console.log(height);
@@ -63,6 +80,22 @@ btnBmr.addEventListener("click", function(){
     console.log(gender);
     console.log(bmi);
     console.log(bmr);
+    
+    let bmrCal = "Bmr Calculator"
+    var database = firebase.database().ref();
+
+
+     firebase.database().ref('users/'+user1+'/BMR/').set({
+     
+      height: height,
+      weight: weight,
+      age:age,
+      gender:gender,
+      bmi: bmi,
+      bmr:bmr
+        
+    
+    }); 
   
 });
 
@@ -110,8 +143,13 @@ function calBMI(bmi){
 
 function recalculate(){
 
-    
-    document.getElementById("calculator").hidden = true;
+    document.getElementById("height").value = "";
+    document.getElementById("weight").value = "";
+    document.getElementById("age").value = "";
+
+    document.getElementById("calculator").hidden = false;
+    document.getElementById("bmr-calculator").hidden = true;
+
 
     console.log("Recal")
 
@@ -133,7 +171,7 @@ var myMeal = {'Breakfast':  [], 'Lunch':    [],'Dinner':   [] };
 
 
 var lb;
-var health;
+//const health;
 var bmr , bmi;
 var minCalories ;
 var maxCalories ;
@@ -171,7 +209,7 @@ function dietSpecific(){
 var healthSpec = document.getElementsByName("health");
 
 
-var health =  stitchHealth(healthSpec);
+//let health =  stitchHealth(healthSpec);
 
 
 function stitchHealth()
@@ -207,13 +245,12 @@ function buildQ(){
  {
      let str = mealTypes[mealCount][i];
     //console.log(mealTypes[mealCount][i]);
-    queries[str] = 'https://api.edamam.com/search?q='+str+'&app_id='+app_id+'&app_key='+app_key+health+'&diet='+diet+'&to=7&calories='+minCalories+'-'+maxCalories;
+    queries[str] = 'https://api.edamam.com/search?q='+str+'&app_id='+app_id+'&app_key='+app_key+stitchHealth()+'&diet='+diet+'&to=7&calories='+minCalories+'-'+maxCalories;
     //queries[str] = "q"+[i]+" ";
  }
  console.log(queries);
+ //console.log(health); // Using function => stitchHealth();
 };
-
-console.log(health);
 
 // Buttons
 
@@ -237,6 +274,7 @@ var testJson;
 
 //Function for Single Query Call
 function execute(){
+    buildQ();
 
     document.getElementById("meal").hidden = false;
 
@@ -252,7 +290,8 @@ function execute(){
             requestBreakfast.onload = function(){
             breakfastData = JSON.parse(requestBreakfast.responseText);
             testJson = JSON.stringify(requestBreakfast.responseText);
-            renderBreakfast(breakfastData);
+            renderBreakfast(breakfastData);     
+
         };
             requestBreakfast.send();
             
@@ -289,46 +328,82 @@ function execute(){
 
     function renderBreakfast(data)
     {
+        
        
         for(var i = 0;i<data.hits.length;i++) 
             {
-                myMeal.Breakfast[i] = data.hits[i];                   
+                myMeal.Breakfast[i] = data.hits[i];                                      
+                       
+                
+               
             }             
         
           console.log(myMeal.Breakfast[0].recipe.label);
+          
          
             // Key Values [0] Monday, [1] Tuesday .... [6] Sunday
            
           var ing;
           var healthLabel;
+          let healthLab = [];
+            let ingr = [];
+            let image = [];
+            let label;
+            let recipeLink;
+            let calories;
 
           for(d=0;d<7;d++)
           {
                       
             ing = "";
             healthLabel = "";
-     
+                        
             document.getElementById("BreakfastImage"+d).src = myMeal.Breakfast[d].recipe.image;
             document.getElementById("BreakfastTitle"+d).innerText = myMeal.Breakfast[d].recipe.label;
             document.getElementById("BreakfastLink"+d).href = myMeal.Breakfast[d].recipe.url;
             document.getElementById("BreakfastCal"+d).innerHTML = Math.round((myMeal.Breakfast[d].recipe.calories)/(myMeal.Breakfast[d].recipe.yield)) + "  kcal";
             document.getElementById("BreakfastIngr"+d).innerHTML = "";
             document.getElementById("BreakfastHealthLabel"+d).innerHTML = "";
-  
+
            for(i=0;i<myMeal.Breakfast[d].recipe.healthLabels.length;i++)
            {
-                  healthLabel += "<div class = chip>" + myMeal.Breakfast[d].recipe.healthLabels[i] + "</div>";
+            healthLab[i] =  myMeal.Breakfast[d].recipe.healthLabels[i] ;
+                healthLabel += "<div class = chip>" + myMeal.Breakfast[d].recipe.healthLabels[i] + "</div>";
                   document.getElementById("BreakfastHealthLabel"+d).innerHTML = healthLabel;
+               
+                
                      
            }
             
             for(i=0;i<myMeal.Breakfast[d].recipe.ingredientLines.length;i++)
             {
+                ingr[i] = myMeal.Breakfast[d].recipe.ingredientLines[i] ;
                   ing += "<li>" + myMeal.Breakfast[d].recipe.ingredientLines[i] + "</li><br>";
                   document.getElementById("BreakfastIngr"+d).innerHTML = ing;
             
           }
+
+            image = myMeal.Breakfast[d].recipe.image;
+            label= myMeal.Breakfast[d].recipe.label;
+            recipeLink =  myMeal.Breakfast[d].recipe.url;
+            calories = Math.round((myMeal.Breakfast[d].recipe.calories)/(myMeal.Breakfast[d].recipe.yield)) + " kcal";
+          
+            firebase.database().ref('users/'+user1+'/Meal Plan/'+'/Breakfast/'+d).set({
+            
+                label : label,
+                image : image,
+                link  : recipeLink,   
+                health : healthLab,
+                ingredient : ingr,
+                calories : calories
+                });
+         
+                console.log("Breakfast Added Sucessfully "+d) ;
+       
+
         }
+
+     
 
 
     }
@@ -343,6 +418,13 @@ function execute(){
 
             var ing;
             var healthLabel;
+                 
+            let healthLab = [];
+            let ingr = [];
+            let image = [];
+            let label;
+            let recipeLink;
+            let calories;
          
   
             for(l=0;l<7;l++)
@@ -359,6 +441,7 @@ function execute(){
     
               for(i=0;i<myMeal.Lunch[l].recipe.healthLabels.length;i++)
               {
+                healthLab[i] =  myMeal.Lunch[l].recipe.healthLabels[i] ;
                     healthLabel += "<div class = chip>" + myMeal.Lunch[l].recipe.healthLabels[i] + "</div>";
                     document.getElementById("LunchHealthLabel"+l).innerHTML = healthLabel;
               }         
@@ -366,11 +449,29 @@ function execute(){
               
               for(i=0;i<myMeal.Lunch[l].recipe.ingredientLines.length;i++)
               {
+                    ingr[i] = myMeal.Lunch[l].recipe.ingredientLines[i] 
                     ing += "<li>" + myMeal.Lunch[l].recipe.ingredientLines[i] + "</li><br>";
                     document.getElementById("LunchIngr"+l).innerHTML = ing;
               }
-  
+              image = myMeal.Lunch[l].recipe.image;
+              label= myMeal.Lunch[l].recipe.label;
+              recipeLink =  myMeal.Lunch[l].recipe.url;
+              calories = Math.round((myMeal.Lunch[l].recipe.calories)/(myMeal.Lunch[l].recipe.yield)) + " kcal";
+            
+              firebase.database().ref('users/'+user1+'/Meal Plan/'+'/Lunch/'+l).set({
+              
+                  label : label,
+                  image : image,
+                  link  : recipeLink,   
+                  health : healthLab,
+                  ingredient : ingr,
+                  calories : calories
+                  });
+           
+                  console.log("Lunch Added Sucessfully "+l) ;
             } 
+
+           
 
     }
 
@@ -383,11 +484,18 @@ function execute(){
 
             var ing = "";
             var healthLabel = "";
+           
   
             for(d=0;d<7;d++)
             {
               ing = "";
               healthLabel = "";
+              let healthLab = [];
+              let ingr = [];
+              let image = [];
+              let label;
+              let recipeLink;
+              let calories;
               document.getElementById("DinnerTitle"+d).innerHTML = myMeal.Dinner[d].recipe.label;
               document.getElementById("DinnerImage"+d).src = myMeal.Dinner[d].recipe.image;
               document.getElementById("DinnerLink"+d).href = myMeal.Dinner[d].recipe.url;
@@ -397,6 +505,7 @@ function execute(){
     
               for(i=0;i<myMeal.Dinner[d].recipe.healthLabels.length;i++)
               {
+                healthLab[i] =  myMeal.Dinner[d].recipe.healthLabels[i] ;
                     healthLabel += "<div class = chip>" + myMeal.Dinner[d].recipe.healthLabels[i] + "</div>";
                     document.getElementById("DinnerHealthLabel"+d).innerHTML = healthLabel;
               }         
@@ -404,21 +513,34 @@ function execute(){
               
               for(i=0;i<myMeal.Dinner[d].recipe.ingredientLines.length;i++)
               {
+                ingr[i] = myMeal.Dinner[d].recipe.ingredientLines[i] 
                     ing += "<li>" + myMeal.Dinner[d].recipe.ingredientLines[i] + "</li><br>";
                     document.getElementById("DinnerIngr"+d).innerHTML = ing;
               }
+
+              image = myMeal.Dinner[d].recipe.image;
+              label= myMeal.Dinner[d].recipe.label;
+              recipeLink =  myMeal.Dinner[d].recipe.url;
+              calories = Math.round((myMeal.Dinner[d].recipe.calories)/(myMeal.Dinner[d].recipe.yield)) + " kcal";
+            
+              firebase.database().ref('users/'+user1+'/Meal Plan/'+'/Dinner/'+d).set({
+              
+                  label : label,
+                  image : image,
+                  link  : recipeLink,   
+                  health : healthLab,
+                  ingredient : ingr,
+                  calories : calories
+                  });
+           
+                  console.log("Dinner Added Sucessfully "+d) ;
   
             }
 
+
     }
 
-   
  
-        
-  
-
-   
-
 
 /* btn.addEventListener("click",function(){
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono">
+    <!--CSS-->
+    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="Assets/grocery.css"> -->
+    <!--Material Icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>Mealogram</title>
+</head>
+
+<body>
+
+
+
+    <div class="container">
+
+<!-- Bar -->
+        <div class="row">
+                <div class="input-field col m10">
+                        <input id="searchBar" type="text">
+                        <label for="searchBar">Find Something to Cook... </label>
+                        
+                </div>
+                <div class="input-field col m2">
+                <input class="btn" type="submit" value="Search" onclick="fetch()">
+                                    
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div id="result"></div>
+<!--             <div class="col m4">
+                <h4 class="center">Lunch</h4>
+                <div class="card medium">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" id="BarImage0" src="images/office.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator"><b id="BarTitle0">Card Title</b></span>
+                        <div class="text-darken-3 left" id="BarHealthLabel0"><br></div>
+        
+                        <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BarCal0"></span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
+                        <br>
+                        <span id="BarIngr0" class="left"></span>
+                    </div>
+                    <div class="card-action">
+        
+                        <a href="" id="BarLink0">Recipe link</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        
+
+
+    </div>
+
+  <!-- Result -->
+        
+
+
+    <!-- Scripts-->
+   
+    <script src="live.js"></script>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+
+    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+
+</body>
+
+</html>
