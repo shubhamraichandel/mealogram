@@ -1,0 +1,30 @@
+nav{
+    
+    background: rgba(0, 0, 0, 0.2);
+
+  }
+
+body{
+  
+    background-image: url("https://wallpaperaccess.com/full/557522.jpg");
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#searchBar{
+    color : slategray;
+    font-size: 22px;
+    font-family: sans-serif;
+}
+
+.bar{
+    margin-top: 5%;
+    
+}
+
+nav ul li.active {
+    background-color: rgba(111, 79, 172, 0.1);
+  }
+

@@ -8,8 +8,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var user1 = "HumhuUser1";
-var user2 = "HumhuUser2";
+var user1 = "User1";
+var user2 = "User2";
 
 
 var database = firebase.database().ref();
@@ -65,10 +65,7 @@ function renderBreakfast(data)
         
         }
 
-        
     }
-
-
 
 }
 
@@ -106,7 +103,6 @@ function renderLunch(data)
         
         }
 
-        
     }
 
 }
@@ -145,7 +141,6 @@ function renderDinner(data)
         
         }
 
-        
     }
 
 }

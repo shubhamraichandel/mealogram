@@ -10,7 +10,8 @@
     <!--Font-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono">
     <!--CSS-->
-    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- <link rel="stylesheet" href="Assets/grocery.css"> -->
     <!--Material Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -19,6 +20,29 @@
 </head>
 
 <body>
+
+        <nav>
+                <div class="nav-extended">
+                    <div class="container">
+                        <a href="#" class="brand-logo">Mealogram</a>
+                        <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="/index.html">Home</a></li>
+                            <li><a href="/grocery.html">Grocery List</a></li>
+                            <li class="active"><a href="/meal.html">My Meal</a>
+                            <li><a href="/live.html">Recipe Search</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        
+            <ul class="sidenav" id="mobile-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="#">Grocery List</a></li>
+                <li class="active"><a href="#">Recipe Search</a></li>
+                <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center" onclick="mainApp.logOut()">Logout</button></li>
+            </ul>
+
 
         <div id="meal" class="container">
 
@@ -603,8 +627,9 @@
   
     <script src="meal.js"></script>
 
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+     
+<script type = "text/javascript" src ="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script>
             $(document).ready(function () {

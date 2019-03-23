@@ -9,8 +9,8 @@ var config = {
 firebase.initializeApp(config);
 
 
-var user1 = "HumhuUser1";
-var user2 = "HumhuUser2";
+var user1 = "User1";
+var user2 = "User2";
 
 var database = firebase.database().ref();
 document.addEventListener('DOMContentLoaded', function() {
@@ -333,9 +333,7 @@ function execute(){
         for(var i = 0;i<data.hits.length;i++) 
             {
                 myMeal.Breakfast[i] = data.hits[i];                                      
-                       
-                
-               
+                  
             }             
         
           console.log(myMeal.Breakfast[0].recipe.label);
