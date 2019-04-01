@@ -1,0 +1,50 @@
+:root {
+	--righteous-font: 'Righteous', cursive;
+}
+
+body {
+	
+    background: black;
+    z-index: -10;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 1.3rem;		    
+} 
+  nav{
+    
+    background: rgba(0, 0, 0, 0.2);
+
+  }
+
+  .user-slider > h1{
+     
+    color: darkslateblue;
+  }
+
+.user-trans{
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.user-button{
+    width: 280px;
+    margin-top: 10px; 
+    border-bottom: green 4px solid;
+    
+  }
+
+  .btn:hover{
+      background-color: rgba(45, 81, 199, 0.363); 
+  }
+  
+.user-bmi  {
+
+    font-size: 35px;
+}
+
+.user-content{
+
+    margin-top: 5%; 
+}
+
+ 

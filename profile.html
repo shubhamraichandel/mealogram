@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono">
     <!--CSS-->
     <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
-    <!-- <link rel="stylesheet" href="Assets/grocery.css"> -->
+    <link rel="stylesheet" href="Assets/user.css">
     <!--Material Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -19,22 +19,125 @@
 </head>
 
 <body>
+        
+    <nav>
+        <div class="nav-extended">
+            <div class="container">
+                <a href="#" class="brand-logo">Mealogram</a>
+                <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="/grocery.html">Grocery List</a></li>
+                    <li><a href="/meal.html">My Meal</a>
+                    <li><a href="/live.html">Recipe Search</a></li>
+                    <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                        onclick="mainApp.logOut()">Logout</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <h2>Homepage</h2>
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/grocery.html">Grocery List</a></li>
+        <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                onclick="mainApp.logOut()">Logout</button></li>
+    </ul>
 
 
+    
 
 
-
-
-      <!-- Scripts-->
+    <div class="container">
+              
+            <div class="row"> 
+                    <h2 class="center-align white-text">Dashboard</h2>
+                      </div>
    
-      <script src="firebase.js"></script>
+        <div class="row ">
+               
 
-      <script src="node_modules/jquery/dist/jquery.js"></script>
-  
-      <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
-  
-  </body>
-  
-  </html>
+            <div class=" col m5 offset-m2 s12  ">
+
+                <div class=" user-slider carousel carousel-slider center">
+                        <div class="carousel-fixed-item center">
+                          <a class="btn waves-effect white black-text darken-text-2"><b>Recalculate<i class="large material-icons right">sync</i></a></b>
+                        </div>
+                        <div class="carousel-item user-trans white-text" href="#one!">
+                          <h1 class="user-bmi red-text darken-3">Body Mass Index</h1>
+                          <h1>24.6</h1>
+                        </div>
+                        <div class="carousel-item user-trans white-text" href="#two!">
+                          <h1 class="user-bmi light-blue-text">Weight</h1>
+                          <h1>Normal</h1>
+                        </div>
+                        <div class="carousel-item user-trans white-text" href="#three!">
+                          <h1 class="user-bmi green-text darken-4">Energy</h1>
+                          <h1>1990 Kcal</h1>
+                      
+                        </div>
+                      
+                      </div>
+
+
+
+            </div>
+            <div class="col center-align  s12 m4">
+                <p> <button class="btn user-button btn-large white black-text darken-text-2"><b>Meal Plan
+                            <i class="large material-icons left">date_range</i></b>
+                    </button></p>
+
+
+            </div>
+
+
+            <div class="col center-align s12 m4">
+
+                <p> <button class="btn user-button btn-large white black-text darken-text-2 "><b>Shopping List
+                            <i class="large material-icons left">format_list_numbered</i></b>
+                    </button></p>
+
+            </div>
+
+            <div class="col center-align  s12 m4">
+
+                <p> <button class="btn user-button btn-large white black-text darken-text-2 "><b>Search Recipes
+                            <i class="large material-icons left">search</i></b>
+                    </button></p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- Scripts-->
+
+
+    <script src="profile.js"></script>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.parallax').parallax();
+            $('.tabs').tabs();
+            $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true,
+    duration: 300
+    
+  });
+        });
+    </script>
+
+</body>
+
+</html>
