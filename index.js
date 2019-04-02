@@ -18,6 +18,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     } else {
       // User is signed out.
       document.getElementById("sgn").hidden= true;
+      window.location = "login.html";
       // ...
     }
   });
@@ -40,7 +41,9 @@ var genderGroup = document.getElementsByName("group");      // Radio group
 var bmr;
 var bmi;
 
-var bmiResult;
+let bmiResult;
+
+
 
 
 /** Function for BMI and BMR */
@@ -61,7 +64,7 @@ btnBmr.addEventListener("click", function(){
        bmr = 66 + (13.7 * weight ) + (5 * height) - (6.8 * age);
        bmiHeight = (height)/100;
        bmi = weight / (bmiHeight * bmiHeight);  
-       calBMI(bmi);
+       bmiResult = calBMI(bmi);
         
     }
     else if(genderGroup[1].checked)
@@ -70,14 +73,14 @@ btnBmr.addEventListener("click", function(){
         bmr = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * age);
         bmiHeight = (height)/100;
         bmi = weight / (bmiHeight * bmiHeight);
-        calBMI(bmi);
+        bmiResult = calBMI(bmi);
        
     }
 
     bmr = Math.round(bmr);
     minCalories = Math.round((bmr - 200)/mealCount);
     maxCalories = Math.round(bmr/mealCount);
-
+   // bmi = Number(bmi).toFixed(2);
 
   
     document.getElementById("bmi-output").innerHTML = Number(bmi).toFixed(2);
@@ -101,6 +104,7 @@ btnBmr.addEventListener("click", function(){
      
       height: height,
       weight: weight,
+      analysis : bmiResult,
       age:age,
       gender:gender,
       bmi: bmi,
@@ -116,38 +120,39 @@ function calBMI(bmi){
 
     if(bmi <= 18.5)
     {
-        console.log("Underweight");
         document.getElementById("bmi-result").innerHTML = "Underweight";
+         return "Underweight";
     }
 
     if (18.5 <= bmi && bmi <= 24.99)
     {
-        console.log("Normal Weight");
         document.getElementById("bmi-result").innerHTML = "Normal Weight";
+        return "Normal Weight";
     }
 
     if (25 <= bmi && bmi <= 29.99)
     {
-        console.log("Overweight");
+      
         document.getElementById("bmi-result").innerHTML = "Overweight";
+        return "Overweight";
     }
 
     if (30 <= bmi && bmi <= 34.99)
     {
-        console.log("Ob C1");
         document.getElementById("bmi-result").innerHTML = "Obesity Class 1";
+        return "Obesity Class 1";
     }
 
     if (35 <= bmi && bmi <= 39.99)
     {
-        console.log("Ob C2");
         document.getElementById("bmi-result").innerHTML = "Obesity Class 2";
+        return "Obesity Class 2";
     }
 
     if (bmi >= 40)
     {
-        console.log("Morbid Obesity");
         document.getElementById("bmi-result").innerHTML = "Morbid Obesity";
+        return "Morbid Obesity";
     }    
 
 };
@@ -335,6 +340,7 @@ function execute(){
             
         }
     }
+
     
 };
 
@@ -550,7 +556,18 @@ function execute(){
 
     }
 
- 
+    /* Log out */
+
+    function logOut(){
+        firebase.auth().signOut().then(function() {
+          console.log("Sign Out Hogaya");
+          document.getElementById("sgn").hidden= true;
+        }).catch(function(error) {
+          // An error happened.
+        });
+      }
+      
+  
 
 /* btn.addEventListener("click",function(){
 

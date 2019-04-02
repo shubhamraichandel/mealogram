@@ -19,8 +19,33 @@ function signUp(){
 
    M.toast({html: `User Created`});
 
-   
+   firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      window.location = "index.html";
+      document.getElementById("sgn").hidden= false;
+      var displayName = user.displayName;
+      var email = user.email;
+      var emailVerified = user.emailVerified;
+      var photoURL = user.photoURL;
+      var isAnonymous = user.isAnonymous;
+      var uid = user.uid;
+      var providerData = user.providerData;
 
+      console.log(uid);
+     
+    }
+    
+    
+    
+    else {
+      // User is signed out.
+      document.getElementById("sgn").hidden= true;
+      // ...
+    }
+  });
+    
+   
 
 }
 
@@ -44,11 +69,12 @@ function login(){
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    console.log("Login Sucess");
+    console.log(errorCode +" "+errorMessage);
 
   });
 
 }
+
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
@@ -62,6 +88,7 @@ function login(){
       var providerData = user.providerData;
 
       console.log(uid);
+      window.location = "profile.html";
      
     }
     

@@ -15,6 +15,9 @@
     <!--Material Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <!-- Edamam Attribution-->
+    <script src="https://developer.edamam.com/attribution/badge.js"></script>
+
      
 <script type = "text/javascript" src ="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
     <title>Mealogram</title>
@@ -27,13 +30,12 @@
     <nav>
         <div class="nav-extended">
             <div class="container">
-                <a href="#" class="brand-logo">Mealogram</a>
+                <a href="profile.html" class="brand-logo">Mealogram</a>
                 <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="/grocery.html">Grocery List</a></li>
-                    <li><a href="/meal.html">My Meal</a>
-                    <li><a href="/live.html">Recipe Search</a></li>
+                        <li><a href="profile.html" class="btn-small btn waves-effect waves-dark blue lighten-1 center">Dashboard</a></li>
+                        <li id="sgn"><button  class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                        onclick="logOut()">Logout</button></li>
                 </ul>
             </div>
         </div>
@@ -814,6 +816,7 @@
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
+                    <div id="edamam-badge" data-color="badge"></div>
                     <a class="grey-text text-lighten-4 left" href="https://github.com/shubhamraichandel/mealogram">Developed By Team-Mealogram</a>
 
             </div>
