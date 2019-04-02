@@ -3,8 +3,8 @@
 }
 
 body {
-	
-    background: black;
+
+  background:black;
     z-index: -10;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,6 +32,13 @@ body {
     border-bottom: green 4px solid;
     
   }
+
+  
+
+.page-footer{
+  margin-top: -2%;
+background: rgba(0 ,0,0, 0.2);
+}
 
   .btn:hover{
       background-color: rgba(45, 81, 199, 0.363); 

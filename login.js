@@ -1,39 +1,58 @@
-var config = {
-    apiKey: "AIzaSyD8SfZs5mKZGSHH5Uo5XmjqhkaA1L4DNgo",
-    authDomain: "mealo-d7871.firebaseapp.com",
-    databaseURL: "https://mealo-d7871.firebaseio.com",
-    projectId: "mealo-d7871",
-    storageBucket: "mealo-d7871.appspot.com",
-    messagingSenderId: "425720264223"
-};
-firebase.initializeApp(config);
+
+function signUp(){
+  let email = document.getElementById("remail").value;
+  let password = document.getElementById("rpassword").value;
+  let displayName = document.getElementById("username").value;
+
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  
+  .catch(function(error) {
+    // Handle Errors here.
+    
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+   });
+
+
+
+   M.toast({html: `User Created`});
+
+   
+
+
+}
+
+function logOut(){
+  firebase.auth().signOut().then(function() {
+    console.log("Sign Out Hogaya");
+    document.getElementById("sgn").hidden= true;
+  }).catch(function(error) {
+    // An error happened.
+  });
+}
+
 
 function login(){
 
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     
-  
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log("New User Created");
-        // ...
-      });
-
-
   firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-    console.log("User already exsist");
-    // ...
+    console.log("Login Sucess");
+
   });
 
+}
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
+      document.getElementById("sgn").hidden= false;
       var displayName = user.displayName;
       var email = user.email;
       var emailVerified = user.emailVerified;
@@ -43,12 +62,17 @@ function login(){
       var providerData = user.providerData;
 
       console.log(uid);
-      // ...
-    } else {
+     
+    }
+    
+    
+    
+    else {
       // User is signed out.
+      document.getElementById("sgn").hidden= true;
       // ...
     }
   });
 
 
-}
+

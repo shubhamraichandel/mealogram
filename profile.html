@@ -26,12 +26,8 @@
                 <a href="#" class="brand-logo">Mealogram</a>
                 <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="/grocery.html">Grocery List</a></li>
-                    <li><a href="/meal.html">My Meal</a>
-                    <li><a href="/live.html">Recipe Search</a></li>
-                    <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center"
-                        onclick="mainApp.logOut()">Logout</button></li>
+                       <li id="sgn"><button class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                        onclick="logOut()">Logout</button></li>
                 </ul>
             </div>
         </div>
@@ -45,10 +41,6 @@
                 onclick="mainApp.logOut()">Logout</button></li>
     </ul>
 
-
-    
-
-
     <div class="container">
               
             <div class="row"> 
@@ -57,12 +49,11 @@
    
         <div class="row ">
                
-
-            <div class=" col m5 offset-m2 s12  ">
+            <div class=" col m5 offset-m2 s12 ">
 
                 <div class=" user-slider carousel carousel-slider center">
                         <div class="carousel-fixed-item center">
-                          <a class="btn waves-effect white black-text darken-text-2"><b>Recalculate<i class="large material-icons right">sync</i></a></b>
+                          <a class="btn waves-effect white black-text darken-text-2"><b>Calculate<i class="large material-icons right">sync</i></a></b>
                         </div>
                         <div class="carousel-item user-trans white-text" href="#one!">
                           <h1 class="user-bmi red-text darken-3">Body Mass Index</h1>
@@ -80,8 +71,6 @@
                       
                       </div>
 
-
-
             </div>
             <div class="col center-align  s12 m4">
                 <p> <button class="btn user-button btn-large white black-text darken-text-2"><b>Meal Plan
@@ -91,12 +80,12 @@
 
             </div>
 
-
             <div class="col center-align s12 m4">
 
                 <p> <button class="btn user-button btn-large white black-text darken-text-2 "><b>Shopping List
                             <i class="large material-icons left">format_list_numbered</i></b>
-                    </button></p>
+                    </button>
+                </p>
 
             </div>
 
@@ -116,13 +105,16 @@
 
 
 
-
     <!-- Scripts-->
 
 
-    <script src="profile.js"></script>
-
     <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="firebase.js"></script>
+
+    <script src="profile.js"></script>
+  
+  
+    
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
     <script>
         $(document).ready(function () {

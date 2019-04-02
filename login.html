@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,7 +12,7 @@
     <!--CSS-->
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- <link rel="stylesheet" href="Assets/grocery.css"> -->
+    <link rel="stylesheet" href="Assets/login.css">
     <!--Material Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -20,33 +20,149 @@
 </head>
 
 <body>
+    <nav>
+        <div class="nav-extended">
+            <div class="container">
+                <a href="#" class="brand-logo center">Mealogram</a>
+                <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                   
+                    <li id="sgn"><button  class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                        onclick="logOut()">Logout</button></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/grocery.html">Grocery List</a></li>
+        <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                onclick="logOut()">Logout</button></li>
+    </ul>
 
     <div class="container">
-        <input type="email" id="email">
-        <input type="password" id="password">
-        <input type="submit" onclick="login()">
+
+
+        <div class="row">
+
+            <div class=" col m6 l6 s12 ">
+
+               <!--  <div class=" user-slider carousel carousel-slider center">
+                 
+                    <div class="carousel-item  red white-text" href="#one!">
+                        <h1 class="user-bmi  darken-3">Body Mass Index</h1>
+                        <h1>24.6</h1>
+                    </div>
+                    <div class="carousel-item  white-text" href="#two!">
+                        <h1 class="user-bmi light-blue-text">Weight</h1>
+                        <h1>Normal</h1>
+                    </div>
+                    <div class="carousel-item  white-text" href="#three!">
+                        <h1 class="user-bmi green-text darken-4">Energy</h1>
+                        <h1>1990 Kcal</h1>
+
+                    </div>
+
+                </div>
+
+ -->
+
+            </div>
+
+
+            <div class="col m4 l6 offset-m8 s12 login">
+
+                <ul class="collapsible popout">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Login</div>
+                        <div class="collapsible-body">
+
+                            <div class="input-field ">
+                                <i class="material-icons teal-text prefix">mail_outline</i>
+                                <input id="email" type="email" class="validate teal-text">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons teal-text prefix">lock_outline</i>
+                                <input id="password" type="password" class="validate teal-text">
+                                <label for="password">Password</label>
+                            </div>
+
+                            <button class="waves-effect waves-light btn" onclick="login()">Login</button>
+
+                        </div>
+                    </li><br><br>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">place</i>Register</div>
+                        <div class="collapsible-body">
+                            
+                                <div class="input-field ">
+                                        <i class="material-icons teal-text prefix">face</i>
+                                        <input id="username" type="text" class="validate teal-text">
+                                        <label for="username">What's your name</label>
+                                    </div>
+                                    <div class="input-field ">
+                                            <i class="material-icons teal-text prefix">mail_outline</i>
+                                            <input id="remail" type="email" class="validate teal-text">
+                                            <label for="remail">Email</label>
+                                        </div>
+                                        <div class="input-field ">
+                                                <i class="material-icons teal-text prefix">vpn_key</i>
+                                                <input id="rpassword" type="password" class="validate teal-text">
+                                                <label for="rpassword">Password</label>
+                                            </div>
+                        <button class="waves-effect waves-light btn" onclick="signUp()">Submit
+                                <i class="material-icons large right">send</i>
+                        </button>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+
+        </div>
+
+
+
     </div>
 
 
 
     <!-- Scripts-->
-  
+
+
+    <script src="firebase.js"></script>
     <script src="login.js"></script>
+  
 
 
-     
-<script type = "text/javascript" src ="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script>
-            $(document).ready(function () {
-                $('.sidenav').sidenav();
-                $('.parallax').parallax();
-                $('.tabs').tabs();
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.parallax').parallax();
+            $('.tabs').tabs();
+            $('.carousel.carousel-slider').carousel({
+                fullWidth: true,
+                indicators: true,
+                duration: 300
+
             });
+            $('.collapsible').collapsible();
+        });
     </script>
 
-    
+
+
+
 
 </body>
 

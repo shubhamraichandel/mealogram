@@ -1,16 +1,28 @@
-var config = {
-    apiKey: "AIzaSyD8SfZs5mKZGSHH5Uo5XmjqhkaA1L4DNgo",
-    authDomain: "mealo-d7871.firebaseapp.com",
-    databaseURL: "https://mealo-d7871.firebaseio.com",
-    projectId: "mealo-d7871",
-    storageBucket: "mealo-d7871.appspot.com",
-    messagingSenderId: "425720264223"
-};
-firebase.initializeApp(config);
+let user1;
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+     
+      var displayName = user.displayName;
+      var email = user.email;
+      var emailVerified = user.emailVerified;
+      var photoURL = user.photoURL;
+      var isAnonymous = user.isAnonymous;
+        user1 = user.uid;
+      var providerData = user.providerData;
+
+      console.log(user1);
+     
+      // ...
+    } else {
+      // User is signed out.
+      document.getElementById("sgn").hidden= true;
+      // ...
+    }
+  });
 
 
-var user1 = "User1";
-var user2 = "User2";
 
 var database = firebase.database().ref();
 document.addEventListener('DOMContentLoaded', function() {
@@ -605,6 +617,10 @@ function renderHTML(data){
     divContainer.insertAdjacentHTML("beforeend",htmlString);
 
 };
+
+
+
+
 
 
 /*
