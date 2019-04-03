@@ -15,11 +15,9 @@ function logOut(){
       document.getElementById("sgn").hidden= false;
       var displayName = user.displayName;
       var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-       user1 = user.uid;
-      var providerData = user.providerData;
+      user1 = user.uid;
+      document.getElementById("userEmail").innerHTML = email;
+      document.getElementById("userName").innerHTML = displayName;
 
       console.log(user1);
       readData();
@@ -52,7 +50,12 @@ function displayUserData(data)
   
    document.getElementById("userBMI").innerHTML = Number(result.bmi).toFixed(2);
 
-   document.getElementById("userWeight").innerHTML = result.analysis;
+   document.getElementById("userAnalysis").innerHTML = result.analysis;
+
+   
+   document.getElementById("userWeight").innerHTML = "Weight : " + result.weight + " Kgs";
+   
+   document.getElementById("userHeight").innerHTML = "Height : " + result.height + " cms";
 
    document.getElementById("userCal").innerHTML = result.bmr + " Kcal";
     

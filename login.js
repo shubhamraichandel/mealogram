@@ -2,10 +2,14 @@
 function signUp(){
   let email = document.getElementById("remail").value;
   let password = document.getElementById("rpassword").value;
-  let displayName = document.getElementById("username").value;
+  let username = document.getElementById("username").value;
 
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then(function(){
+    
+   M.toast({html: `User Created`});
+  })
   
   .catch(function(error) {
     // Handle Errors here.
@@ -13,25 +17,21 @@ function signUp(){
     var errorCode = error.code;
     var errorMessage = error.message;
 
+    console.log(errorCode +" "+errorMessage );
+    M.toast({html: errorMessage});
+
    });
 
-
-
-   M.toast({html: `User Created`});
-
-   firebase.auth().onAuthStateChanged(function(user) {
+   firebase.auth().onAuthStateChanged(function() {
     if (user) {
       // User is signed in.
-      window.location = "index.html";
-      document.getElementById("sgn").hidden= false;
-      var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
 
+      user.updateProfile({
+        displayName: username
+        
+      });
+      setTimeout(function(){  window.location = "index.html"; }, 3000);
+     
       console.log(uid);
      
     }
@@ -40,36 +40,31 @@ function signUp(){
     
     else {
       // User is signed out.
-      document.getElementById("sgn").hidden= true;
+      
+      M.toast({html: `User is Signed Out!`});
       // ...
     }
   });
     
    
-
 }
-
-function logOut(){
-  firebase.auth().signOut().then(function() {
-    console.log("Sign Out Hogaya");
-    document.getElementById("sgn").hidden= true;
-  }).catch(function(error) {
-    // An error happened.
-  });
-}
-
 
 function login(){
 
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
+
     
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+    M.toast({html: `Welcome Back!`});
+  })
+  .catch(function(error) {
         
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
     console.log(errorCode +" "+errorMessage);
+    M.toast({html: errorMessage});
 
   });
 
@@ -78,17 +73,12 @@ function login(){
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-      document.getElementById("sgn").hidden= false;
+    
       var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
-
-      console.log(uid);
-      window.location = "profile.html";
+      console.log(displayName);
+      setTimeout(function(){ window.location = "profile.html"; }, 3000);
+      
+      
      
     }
     

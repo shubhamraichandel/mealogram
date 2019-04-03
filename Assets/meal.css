@@ -1,0 +1,14 @@
+body {
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 1.3rem;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+
+}
+
+

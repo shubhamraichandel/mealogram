@@ -10,13 +10,17 @@ function fetch() {
     request.open('GET', 'https://api.edamam.com/search?q=' + str.value + '&app_id=' + app_id + '&app_key=' + app_key);
 
     console.log(str.value);
-
+ 
     request.onload = function () {
         data = JSON.parse(request.responseText);
         result(data);
+        
+  
     }
 
     request.send();
+    
+ 
    
 };
 
@@ -63,7 +67,10 @@ function result(data) {
                 </div>`;
 
         divResult.insertAdjacentHTML("beforeend", item);
+
+       
        
     }
+
  
 }

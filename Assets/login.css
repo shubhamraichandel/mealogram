@@ -1,20 +1,45 @@
-.login{
-    margin-top: 5%;  
-    
+.login {
+    margin-top: 5%;
+
 }
 
-body{
-   background: black;
-    z-index: -10;
+
+main {
+    flex: 1 0 auto;
+}
+
+body {
+    background: black;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     font-size: 1.3rem;
-     
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+
 }
 
-nav{
-    
+
+.carousel-item>h2 {
+    text-emphasis: bold;
+    text-align: center;
+}
+
+.carousel-item>li {
+    margin-left: 10%;
+    margin-top: 10%;
+
+
+}
+
+nav {
+
     background: rgba(0, 0, 0, 0.2);
 
-  }
+}
+
+.user-slider {
+    margin-top: 10%;
+}

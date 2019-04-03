@@ -34,102 +34,91 @@
     </nav>
 
     <ul class="sidenav" id="mobile-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/grocery.html">Grocery List</a></li>
-        <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center"
-                onclick="mainApp.logOut()">Logout</button></li>
+   
+        <li id="sgn"><a class="btn-small btn waves-effect waves-dark red lighten-1"
+            onclick="logOut()">Logout</a></li>
     </ul>
 
     <div class="container">
         <h3 class="center-align white-text">Dashboard</h3>
         <div class="row">
 
-            
-                <div class=" col m6 s12 ">
 
-                        <div class=" user-slider carousel carousel-slider center">
-                            <div class="carousel-fixed-item center">
-                                <a href="index.html" class="btn waves-effect white black-text darken-text-2"><b>Calculate<i
-                                            class="large material-icons right">sync</i></a></b>
-                            </div>
-                            <div class="carousel-item user-trans white-text" href="#one!">
-                                <h1 class="user-bmi red-text darken-3">Body Mass Index</h1>
-                                <h1 id="userBMI"></h1>
-                            </div>
-                            <div class="carousel-item user-trans white-text" href="#two!">
-                                <h1 class="user-bmi light-blue-text">Weight</h1>
-                                <h1 id="userWeight"></h1>
-                            </div>
-                            <div class="carousel-item user-trans white-text" href="#three!">
-                                <h1 class="user-bmi green-text darken-4">Energy</h1>
-                                <h1 id="userCal"></h1>
-        
-                            </div>
-        
-                        </div>
-        
+            <div class=" col m6 s12 ">
+
+                <div class=" user-slider carousel carousel-slider center">
+                    <div class="carousel-fixed-item center">
+                        <a href="index.html" class="btn waves-effect white black-text darken-text-2"><b>Calculate<i
+                                    class="large material-icons right">sync</i></a></b>
+                    </div>
+                    <div class="carousel-item user-trans white-text" href="#one!">
+                        <h1 class="user-bmi red-text darken-3">Body Mass Index</h1>
+                        <h3 id="userBMI"></h3>
+                    </div>
+                    <div class="carousel-item user-trans white-text" href="#two!">
+                        <h1 class="user-bmi light-blue-text">Weight</h1>
+                        <h3 id="userAnalysis"></h3>
+                    </div>
+                    <div class="carousel-item user-trans white-text" href="#three!">
+                        <h1 class="user-bmi green-text darken-4">Energy</h1>
+                        <h3 id="userCal"></h3>
+
                     </div>
 
+                </div>
 
-            <div class="col m6">
+            </div>
+
+
+            <div class="col m6 s12">
                 <ul class="user-summary collection with-header">
                     <li class="collection-header">
-                        <h5 class="center-align">Account Summary</h5>
+                        <h5 class="center-align"><b>Account Summary</b></h5>
                     </li>
                     <li class="collection-item">
-                        <span class="title">Shubham Raichandel</span></li>
+                        <span id="userName">Username</span></li>
                     <li class="collection-item">
-                        <span class="text-black">shubhamraichandel@yahoo.com</span></li>
+                        <span id="userEmail">Email</span></li>
                     <li class="collection-item">
-                        <span class="title">Weight :</span>
+                        <span id="userWeight">Weight :</span>
                     </li>
 
                     <li class="collection-item">
-                            <span class="title">Height :</span>
-                        </li>
+                        <span id="userHeight" class="title">Height :</span>
+                    </li>
                 </ul>
             </div>
 
-            <div class="col center-align s12 m3 ">
-                    <p> <a href="meal.html" class="btn user-button btn-large white black-text darken-text-2"><b>Meal Plan
-                                <i class="large material-icons left">date_range</i></b>
-                        </a></p>
-    
-    
-                </div>
-                <div class="col center-align s12 m3 ">
-        
-                        <p> <a href="grocery.html" class="btn user-button btn-large white black-text darken-text-2 "><b>Shopping
-                                    List
-                                    <i class="large material-icons left">format_list_numbered</i></b>
-                            </a>
-                        </p>
-        
-                    </div>
-        
-                    <div class="col center-align  s12 m3 ">
-        
-                        <p> <a href="live.html" class="btn user-button btn-large white black-text darken-text-2 "><b>Search
-                                    Recipes
-                                    <i class="large material-icons left">search</i></b>
-                            </a></p>
-        
-                    </div>
+            <div class="col m3 s12 center-align  ">
+                <p> <a href="meal.html" class="btn user-button btn-large white black-text darken-text-2"><b>Meal Plan
+                            <i class="large material-icons left">date_range</i></b>
+                    </a></p>
 
-                    
-                    
-                    
-                 
-            
+
+            </div>
+            <div class="col center-align s12 m3 ">
+
+                <p> <a href="grocery.html" class="btn user-button btn-large white black-text darken-text-2 "><b>Shopping
+                            List
+                            <i class="large material-icons left">format_list_numbered</i></b>
+                    </a>
+                </p>
+
+            </div>
+
+            <div class="col center-align  s12 m3 ">
+
+                <p> <a href="live.html" class="btn user-button btn-large white black-text darken-text-2 "><b>Search
+                            Recipes
+                            <i class="large material-icons left">search</i></b>
+                    </a></p>
+
+            </div>
 
 
         </div>
 
     </div>
-
-
-
 
     <!-- Scripts-->
 
@@ -147,12 +136,17 @@
             $('.sidenav').sidenav();
             $('.parallax').parallax();
             $('.tabs').tabs();
+
             $('.carousel.carousel-slider').carousel({
                 fullWidth: true,
-                indicators: true,
-                duration: 300
-
+                indicators: true
+                
             });
+            setInterval(function () {
+                $('.carousel').carousel('next');
+            }, 4000);
+
+
         });
     </script>
 

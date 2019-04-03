@@ -21,27 +21,27 @@
 
 <body>
 
-        <nav>
-                <div class="nav-extended">
-                    <div class="container">
-                        <a href="#" class="brand-logo">Mealogram</a>
-                        <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="/index.html">Home</a></li>
-                            <li><a href="/grocery.html">Grocery List</a></li>
-                            <li><a href="/meal.html">My Meal</a>
-                            <li class="active"><a href="#">Recipe Search</a></li>
-                        </ul>
-                    </div>
+     <!--Nav Bar-->
+
+     <nav>
+            <div class="nav-extended">
+                <div class="container">
+                    <a href="profile.html" class="brand-logo">Mealogram</a>
+                    <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="profile.html" class="btn-small btn waves-effect waves-dark blue lighten-1 center">Dashboard</a></li>
+                            <li id="sgn"><a  class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                            onclick="logOut()">Logout</a></li>
+                    </ul>
                 </div>
-            </nav>
-        
-            <ul class="sidenav" id="mobile-links">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="#">Grocery List</a></li>
-                <li class="active"><a href="#">Recipe Search</a></li>
-                <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center" onclick="mainApp.logOut()">Logout</button></li>
-            </ul>
+            </div>
+        </nav>
+    
+        <ul class="sidenav" id="mobile-links">
+                <li><a href="profile.html" class="btn-small btn waves-effect waves-dark blue lighten-1 center">Dashboard</a></li>
+                <li id="sgn"><a  class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                onclick="logOut()">Logout</a></li>
+        </ul>
 
 
 
@@ -49,13 +49,14 @@
 
 <!-- Bar -->
         <div class="row bar">
+            
                 <div class="input-field col m10">
                         <input id="searchBar" type="text">
                         <label for="searchBar">Find Something to Cook... </label>                        
                 </div>
                 <div class="input-field col m2">
                 <input class="btn" type="submit" value="Search" onclick="fetch()">
-                                    
+                                 
             </div>
         </div>
       

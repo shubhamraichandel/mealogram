@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="Assets/login.css">
     <!--Material Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <!-- Edamam Attribution-->
+      <script src="https://developer.edamam.com/attribution/badge.js"></script>
 
     <title>Mealogram</title>
 </head>
@@ -24,37 +26,27 @@
         <div class="nav-extended">
             <div class="container">
                 <a href="#" class="brand-logo center">Mealogram</a>
-                <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                   
-                    <li id="sgn"><button  class="btn-small btn waves-effect waves-dark red lighten-1 center"
-                        onclick="logOut()">Logout</button></li>
-                </ul>
-
-            </div>
+               </div>
         </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/grocery.html">Grocery List</a></li>
-        <li><button class="btn-small btn waves-effect waves-dark red lighten-1 center"
-                onclick="logOut()">Logout</button></li>
-    </ul>
+<main>
 
     <div class="container">
 
 
         <div class="row">
 
-            <div class=" col m6 l6 s12 ">
+            <div class=" col m8 l6 s12 ">
 
-               <!--  <div class=" user-slider carousel carousel-slider center">
+      <!--            <div class=" user-slider carousel carousel-slider">
                  
                     <div class="carousel-item  red white-text" href="#one!">
-                        <h1 class="user-bmi  darken-3">Body Mass Index</h1>
-                        <h1>24.6</h1>
+                        <h2>Does this sound like you?</h2>
+                        <li>Wasted a lot of time thinking about what I should make for dinner today</li>
+                        <li>Want to watch what I eat but don't know how?</li>
+                        <li>Not good at pre-planning meals</li>
+                     
                     </div>
                     <div class="carousel-item  white-text" href="#two!">
                         <h1 class="user-bmi light-blue-text">Weight</h1>
@@ -66,9 +58,9 @@
 
                     </div>
 
-                </div>
+                </div> -->
 
- -->
+ 
 
             </div>
 
@@ -101,20 +93,20 @@
                             
                                 <div class="input-field ">
                                         <i class="material-icons teal-text prefix">face</i>
-                                        <input id="username" type="text" class="validate teal-text">
+                                        <input id="username" type="text" required class="validate teal-text">
                                         <label for="username">What's your name</label>
                                     </div>
                                     <div class="input-field ">
                                             <i class="material-icons teal-text prefix">mail_outline</i>
-                                            <input id="remail" type="email" class="validate teal-text">
+                                            <input id="remail" type="email" required class="validate teal-text">
                                             <label for="remail">Email</label>
                                         </div>
                                         <div class="input-field ">
                                                 <i class="material-icons teal-text prefix">vpn_key</i>
-                                                <input id="rpassword" type="password" class="validate teal-text">
+                                                <input id="rpassword" type="password" required  class="validate teal-text">
                                                 <label for="rpassword">Password</label>
                                             </div>
-                        <button class="waves-effect waves-light btn" onclick="signUp()">Submit
+                        <button class="waves-effect waves-light btn"  onclick="signUp()">Submit
                                 <i class="material-icons large right">send</i>
                         </button>
                         </div>
@@ -129,8 +121,20 @@
         </div>
 
 
-
     </div>
+
+    </main>
+<footer>
+        <div class="footer">
+            <div class="container">
+                     
+                    <a id="edamam-badge" class="right" data-color="transparent"></a>
+                    
+         
+
+            </div>
+        </div>
+    </footer>
 
 
 
