@@ -2,14 +2,24 @@
 	--righteous-font: 'Righteous', cursive;
 }
 
+
+main {
+  flex: 1 0 auto;
+}
+
+
 body {
 
- background: grey;
+  background-image: url("https://wallpaperaccess.com/full/557522.jpg"); 
+   
     z-index: -10;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 1.3rem;		    
+    
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;		    
 } 
   nav{
     
@@ -29,8 +39,12 @@ body {
 .user-button{
     width: 230px;
     margin-top: -7%; 
-    border-bottom: green 4px solid;
+    border-bottom: rgba(226, 65, 36, 0.795) 2px solid;
     
+  }
+
+  .user-button :focus{
+    background: rgba(226, 65, 36, 0.795);
   }
 
 .page-footer{

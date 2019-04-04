@@ -33,7 +33,7 @@ window.onload = function() {
 	//add todo item to list
 	function addTodoItem() {
 		if(input.value === "") {
-			alert("You must enter some value!");
+			M.toast({html: `You must enter some value.`});
 		}
 		else {
 			if(list.style.borderTop === "") {

@@ -13,34 +13,37 @@
     <link rel="stylesheet" href="Assets/grocery.css">
     <!--Material Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+       <!-- Edamam Attribution-->
+       <script src="https://developer.edamam.com/attribution/badge.js"></script>
+
 
     <title>Mealogram</title>
 </head>
 
 <body>
 
-    <!--Nav Bar-->
+      <!--Nav Bar-->
 
-    <nav>
-            <div class="nav-wrapper">
+      <nav>
+            <div class="nav-extended">
                 <div class="container">
-                    <a href="#" class="brand-logo">Mealogram</a>
+                    <a href="profile.html" class="brand-logo">Mealogram</a>
                     <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="/index.html">Home</a></li>
-                        <li class="active"><a href="/grocery.html" class="active">Grocery List</a></li>
-                        <li><a href="/meal.html">My Meal</a>
-                        <li><a href="/live.html">Recipe Search</a></li>
+                            <li><a href="profile.html" class="btn-small btn waves-effect waves-dark blue lighten-1 center">Dashboard</a></li>
+                            <li id="sgn"><a  class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                            onclick="logOut()">Logout</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     
         <ul class="sidenav" id="mobile-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#calbmr">Calorie Calculator</a></li>
-            <li><a href="#getMealPlan">Meal Plan</a></li>
+                <li><a href="profile.html" class="btn-small btn waves-effect waves-dark blue lighten-1 center">Dashboard</a></li>
+                <li id="sgn"><a  class="btn-small btn waves-effect waves-dark red lighten-1 center"
+                onclick="logOut()">Logout</a></li>
         </ul>
+
         <div class="heros">
                 <div class="container box">
                     <h1 class="display-2 text-center left-align">Grocery List</h1>
@@ -71,6 +74,17 @@
                     </div>				
                 </div>
         </div>
+        <footer>
+                <div class="footer">
+                    <div class="container">
+                             
+                            <a id="edamam-badge" class="right" data-color="transparent"></a>
+                            
+                 
+            
+                    </div>
+                </div>
+            </footer>
 
     <!-- Scripts-->
 
@@ -80,6 +94,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="grocery.js"></script>
+    <script>
+            $(document).ready(function () {
+                $('.sidenav').sidenav();
+                $('.parallax').parallax();
+                $('.tabs').tabs();
+            });
+    </script>
 
 </body>
 

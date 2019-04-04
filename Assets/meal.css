@@ -1,14 +1,60 @@
 body {
-   
+    background-image: url("https://wallpaperaccess.com/full/557522.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 1.3rem;
+ 
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 
-
 }
+
+h4{
+    color:white;
+    
+}
+
+
+main {
+    flex: 1 0 auto;
+}
+
+.card-reveal  {
+    background:rgba(255, 255, 255, 0.1);
+    color:black;
+}
+
+
+nav{
+    
+    background: rgba(0, 0, 0, 0);
+
+  }
+
+.mealbar > ul {
+
+    
+    background: rgba(0, 0, 0, 0);
+  
+
+  }
+
+  .card{
+      background:rgba(0, 0, 0, 0.1);
+     
+
+  }
+
+  .cal {
+      color:red;
+  }
+
+#mon,#tue,#wed,#thu,#fri,#sat,#sun  {
+    color: rgba(255, 255, 255, 0.8);
+    
+}
+
+
 
 

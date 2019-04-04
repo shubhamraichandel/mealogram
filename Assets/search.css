@@ -10,18 +10,19 @@ body{
    
     background-repeat: no-repeat;
     background-size: cover;
-
+    
 }
 
+
 #searchBar{
-    color : slategray;
+    color : rgba(255, 255, 255, 0.7);
     font-size: 22px;
-    font-family: sans-serif;
+    border-bottom: 2px solid;
 }
 
 .bar{
     margin-top: 5%;
-    
+    color : rgba(255, 255, 255, 0.1);
 }
 
 nav ul li.active {
