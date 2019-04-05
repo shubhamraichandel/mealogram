@@ -22,7 +22,7 @@ function signUp(){
 
    });
 
-   firebase.auth().onAuthStateChanged(function() {
+   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
 
@@ -68,7 +68,7 @@ function login(){
 
   });
 
-}
+
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -92,4 +92,4 @@ function login(){
   });
 
 
-
+}
