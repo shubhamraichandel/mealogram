@@ -1,15 +1,27 @@
 
 body {
 	
-	background-image: url("https://wallpaperaccess.com/full/557522.jpg");
+	background-color:black;
     
     z-index: -10;
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
-    font-size: 1.3rem;	    
+  	    
 } 
+h4{
+  color:white;
+  
+}
+
+span{
+  color:white;
+}
+
+.list{
+  color:black;
+}
   nav{
     
     background: rgba(0, 0, 0, 0.2);
@@ -21,10 +33,73 @@ body {
   }
   
 
-  
-  
+  .card-panel{
+    background: rgba(0, 0, 0, 0.24);
+    color:   #e53935;
+    font-size: 20px;
+} 
+
+
+
   
 
 .bmr-card{
   width:200px;
+}
+
+/* label focus color */
+.input-field input:focus + label {
+  color:  #d32f2f  !important;
+}
+/* label underline focus color */
+.row .input-field input:focus {
+  border-bottom: 1px solid #d32f2f  !important;
+  box-shadow: 0 1px 0 0 #d32f2f  !important
+}
+
+[type="text"]{
+  color:#d32f2f ;
+}
+
+h6{
+  color:white;
+  font-size: 22px;
+
+}
+
+[type="checkbox"].filled-in:checked + span:not(.lever):after {
+ 
+  top: 0;
+ 
+  width: 20px;
+ 
+  height: 20px;
+ 
+  border: 2px solid #d32f2f ;
+ 
+  background-color: #d32f2f;
+ 
+  z-index: 0;
+ 
+}
+
+
+
+
+[type="radio"]:checked + span:after,
+ 
+[type="radio"].with-gap:checked + span:after {
+ 
+  background-color: #d32f2f ;
+ 
+}
+
+[type="radio"]:checked + span:after,
+ 
+[type="radio"].with-gap:checked + span:before,
+ 
+[type="radio"].with-gap:checked + span:after {
+ 
+  border: 2px solid #d32f2f ;
+ 
 }

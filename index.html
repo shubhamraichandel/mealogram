@@ -11,7 +11,10 @@
     <!--CSS-->
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="Assets/style.css">
+ 
+  <link rel="stylesheet" href="Assets/style.css">
+  <link rel="stylesheet" href="Assets/meal.css">
+    
     <!--Material Icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -25,6 +28,7 @@
 
 <body>
 
+    <main>
     <!--Nav Bar-->
 
     <nav>
@@ -47,11 +51,6 @@
             onclick="logOut()">Logout</a></li>
     </ul>
 
- <!-- Parallax-->
-
- <div class="parallax-container">
-        <div class="parallax"><img src="https://wallpaperaccess.com/full/557522.jpg"></div>
-    </div>
 
 
     <!--Landing Page-->
@@ -61,25 +60,26 @@
 
     <div id="calbmr" class="container section ">
 
-        <!--BMI Calculator-->
-        <h4 class="header center-align">Let's see how many calories do you need in a day...</h4>
+        
 
 
         <div class="row">
                <!-- <div class="col m5 s12 offset-m3" id="calculator"> -->
+                   <!--BMI Calculator-->
+        <h4 id="d" class="header center-align">Let's see how many calories do you need in a day...</h4>
             <div class="col m5 s12 offset-m3" id="calculator">
                 <div class="card-panel z-depth-2">
 
                     <div class="input-field ">
-                        <input id="height" type="text" class="validate">
+                        <input id="height" type="text" >
                         <label for="height">Height in cm</label>
                     </div>
                     <div class="input-field">
-                        <input id="weight" type="text" class="validate">
+                        <input id="weight" type="text" >
                         <label for="weight">Weight in kg</label>
                     </div>
                     <div class="input-field">
-                        <input id="age" type="text" class="validate">
+                        <input id="age" type="text" >
                         <label for="age">Age</label>
                     </div>
                     <div class="input-field">
@@ -97,7 +97,8 @@
                         </p>
                     </div>
                     <p class="center-align">
-                        <Button id="btn-bmr" class="btn waves-effect waves-dark btn-block lighten-1"><i class="material-icons right">sync</i>Calculate</Button>
+                        <Button id="btn-bmr" class="btn waves-effect waves-dark btn-block red darken-4">Calculate</Button>
+                 
                         <p>
 
                 </div>
@@ -105,17 +106,20 @@
             </div>
 
             <div class="col m5 s12 offset-m3" id="bmr-calculator">
-                <h3 class="center">Result</h3>
+                <h3 class="center red-text darken-2">Analysis</h3>
 
                 <h5 class="center">BMI : <b id="bmi-output"> </b></h5>
                 <h6 class="center" id="bmi-result"> </h6>
 
 
                 <div class="card-panel">
-                    <h6 class="center"><span class="flow-text" id="bmr-output"></span></h6>
+                    <h6 class="center"><span class="flow-text " id="bmr-output"></span></h6>
                 </div>
 
-                <div class="center"><button onclick="recalculate()" class="btn red">Recalculate</button></div>
+                <div class="center">
+                    <button class="btn waves-effect waves-dark btn-block red darken-4" onclick="recalculate()" class="btn red">Recalculate</button>
+                    <Button id="btn-bmr" class="btn waves-effect waves-dark btn-block red darken-4" onclick="mealPlan()">Plan Meal</Button>
+                </div>
 
                 
 
@@ -129,12 +133,12 @@
     <!--End Of BMR-->
 
 
-    <!-- Parallax-->
+    <!-- Parallax
 
     <div class="parallax-container">
         <div class="parallax"><img src="https://wallpaperaccess.com/full/557522.jpg"></div>
     </div>
-
+-->
     <!--Index-->
     <div id="getMealPlan" class="container">
 
@@ -179,31 +183,31 @@
             </div>
 
             <div class="col m6 s12">
-                <div class=card-panel>
+                <div class="card-panel z-index-4" >
                     <h6>Any health preferences?</h6>
                     <div class=input-field>
                         <p>
                             <label>
-                                <input name="health" value="vegan" type="checkbox" />
-                                <span>Vegan (No meat, poultry, fish, dairy, eggs or honey)</span>
+                                <input name="health" value="vegan" class="filled-in" type="checkbox" />
+                                <span class="checkmark">Vegan (No meat, poultry, fish, dairy, eggs or honey)</span>
                             </label>
                         </p>
                         <p>
                             <label>
-                                <input name="health" value="vegetarian" type="checkbox" />
-                                <span>Vegetarian (No wheat, can have gluten though)</span>
+                                <input name="health" class="filled-in" value="vegetarian" type="checkbox" />
+                                <span class="checkmark">Vegetarian (No wheat, can have gluten though)</span>
                             </label>
                         </p>
                         <p>
                             <label>
-                                <input name="health" value="alcohol-free" type="checkbox" />
-                                <span>Alcohol-free (No alcohol used or contained)</span>
+                                <input name="health" class="filled-in" value="alcohol-free" type="checkbox" />
+                                <span class="checkmark">Alcohol-free (No alcohol used or contained)</span>
                             </label>
                         </p>
                         <p>
                             <label>
-                                <input name="health" value="peanut-free" type="checkbox" />
-                                <span>Peanut Free (No peanuts or products containing peanuts)</span>
+                                <input name="health" class="filled-in" value="peanut-free" type="checkbox" />
+                                <span class="checkmark">Peanut Free (No peanuts or products containing peanuts)</span>
                             </label>
                         </p>
 
@@ -213,7 +217,7 @@
         </div>
         <div class="container">
             <div class="center">
-                <a href="#meal"><button class="waves-effect waves-light btn red lighten-1" onclick="execute()"><i class="material-icons right">local_dining</i>Get
+                <a href="#meal"><button class="waves-effect waves-light btn red darken-4" onclick="execute()"><i class="material-icons right">local_dining</i>Get
                         Plan!</button></a>
             </div>
         </div>
@@ -224,9 +228,9 @@
 
     <!-- Parallax-->
 
-    <div class="parallax-container">
+    <!-- <div class="parallax-container">
             <div class="parallax"><img src="https://wallpaperaccess.com/full/557522.jpg"></div>
-        </div>
+        </div> -->
 
     <!--meal-->
 
@@ -234,7 +238,7 @@
 
         <h4 class="header center">Your custom meal plan is ready... </h4>
 
-        <div class="col s12 m12">
+        <div class="mealbar col s12 m12">
             <ul class="tabs tabs-fixed-width">
                 <li class="tab col m2 s3"><a class="active" href="#mon">Mon</a></li>
                 <li class="tab col m2 s3"><a href="#tue">Tue</a></li>
@@ -260,12 +264,12 @@
                             <span class="card-title activator"><b id="BreakfastTitle0">Card Title</b></span>
                             <div class="text-darken-3 left" id="BreakfastHealthLabel0"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal0"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal0"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="BreakfastIngr0" class="left"></span>
+                            <span id="BreakfastIngr0"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -285,12 +289,12 @@
                             <span class="card-title activator"><b id="LunchTitle0">Card Title</b></span>
                             <div class="text-darken-3 left" id="LunchHealthLabel0"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal0"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal0"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="LunchIngr0" class="left"></span>
+                            <span id="LunchIngr0"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -310,12 +314,12 @@
                             <span class="card-title activator"><b id="DinnerTitle0">Card Title</b></span>
                             <div class="text-darken-3 left" id="DinnerHealthLabel0"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal0"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal0"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <li id="DinnerIngr0" class="left"></li>
+                            <li id="DinnerIngr0"   class="left list"></li>
                         </div>
                         <div class="card-action">
 
@@ -340,12 +344,12 @@
                             <span class="card-title activator"><b id="BreakfastTitle1">Card Title</b></span>
                             <div class="text-darken-3 left" id="BreakfastHealthLabel1"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal1"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal1"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="BreakfastIngr1" class="left"></span>
+                            <span id="BreakfastIngr1"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -364,12 +368,12 @@
                             <span class="card-title activator"><b id="LunchTitle1">Card Title</b></span>
                             <div class="text-darken-3 left" id="LunchHealthLabel1"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal1"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal1"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="LunchIngr1" class="left"></span>
+                            <span id="LunchIngr1"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -389,12 +393,12 @@
                             <span class="card-title activator"><b id="DinnerTitle1">Card Title</b></span>
                             <div class="text-darken-3 left" id="DinnerHealthLabel1"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal1"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal1"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="DinnerIngr1" class="left"></span>
+                            <span id="DinnerIngr1"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -420,12 +424,12 @@
                             <span class="card-title activator"><b id="BreakfastTitle2">Card Title</b></span>
                             <div class="text-darken-3 left" id="BreakfastHealthLabel2"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal2"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal2"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="BreakfastIngr2" class="left"></span>
+                            <span id="BreakfastIngr2"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -444,12 +448,12 @@
                             <span class="card-title activator"><b id="LunchTitle2">Card Title</b></span>
                             <div class="text-darken-3 left" id="LunchHealthLabel2"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal2"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal2"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="LunchIngr2" class="left"></span>
+                            <span id="LunchIngr2"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -468,12 +472,12 @@
                             <span class="card-title activator"><b id="DinnerTitle2">Card Title</b></span>
                             <div class="text-darken-3 left" id="DinnerHealthLabel2"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal2"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal2"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="DinnerIngr2" class="left"></span>
+                            <span id="DinnerIngr2"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -500,12 +504,12 @@
                             <span class="card-title activator"><b id="BreakfastTitle3">Card Title</b></span>
                             <div class="text-darken-3 left" id="BreakfastHealthLabel3"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal3"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal3"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="BreakfastIngr3" class="left"></span>
+                            <span id="BreakfastIngr3"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -524,12 +528,12 @@
                             <span class="card-title activator"><b id="LunchTitle3">Card Title</b></span>
                             <div class="text-darken-3 left" id="LunchHealthLabel3"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal3"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal3"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="LunchIngr3" class="left"></span>
+                            <span id="LunchIngr3"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -548,12 +552,12 @@
                             <span class="card-title activator"><b id="DinnerTitle3">Card Title</b></span>
                             <div class="text-darken-3 left" id="DinnerHealthLabel3"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal3"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal3"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="DinnerIngr3" class="left"></span>
+                            <span id="DinnerIngr3"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -580,12 +584,12 @@
                             <span class="card-title activator"><b id="BreakfastTitle4">Card Title</b></span>
                             <div class="text-darken-3 left" id="BreakfastHealthLabel4"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal4"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal4"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="BreakfastIngr4" class="left"></span>
+                            <span id="BreakfastIngr4"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -604,12 +608,12 @@
                             <span class="card-title activator"><b id="LunchTitle4">Card Title</b></span>
                             <div class="text-darken-3 left" id="LunchHealthLabel4"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal4"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal4"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="LunchIngr4" class="left"></span>
+                            <span id="LunchIngr4"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -628,12 +632,12 @@
                             <span class="card-title activator"><b id="DinnerTitle4">Card Title</b></span>
                             <div class="text-darken-3 left" id="DinnerHealthLabel4"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal4"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal4"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="DinnerIngr4" class="left"></span>
+                            <span id="DinnerIngr4"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -660,12 +664,12 @@
                             <span class="card-title activator"><b id="BreakfastTitle5">Card Title</b></span>
                             <div class="text-darken-3 left" id="BreakfastHealthLabel5"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal5"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal5"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="BreakfastIngr5" class="left"></span>
+                            <span id="BreakfastIngr5"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -684,12 +688,12 @@
                             <span class="card-title activator"><b id="LunchTitle5">Card Title</b></span>
                             <div class="text-darken-3 left" id="LunchHealthLabel5"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal5"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal5"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="LunchIngr5" class="left"></span>
+                            <span id="LunchIngr5"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -708,12 +712,12 @@
                             <span class="card-title activator"><b id="DinnerTitle5">Card Title</b></span>
                             <div class="text-darken-3 left" id="DinnerHealthLabel5"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal5"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal5"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="DinnerIngr5" class="left"></span>
+                            <span id="DinnerIngr5"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -740,12 +744,12 @@
                             <span class="card-title activator"><b id="BreakfastTitle6">Card Title</b></span>
                             <div class="text-darken-3 left" id="BreakfastHealthLabel6"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal6"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="BreakfastCal6"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="BreakfastIngr6" class="left"></span>
+                            <span id="BreakfastIngr6"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -764,12 +768,12 @@
                             <span class="card-title activator"><b id="LunchTitle6">Card Title</b></span>
                             <div class="text-darken-3 left" id="LunchHealthLabel6"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal6"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="LunchCal6"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="LunchIngr6" class="left"></span>
+                            <span id="LunchIngr6"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -788,12 +792,12 @@
                             <span class="card-title activator"><b id="DinnerTitle6">Card Title</b></span>
                             <div class="text-darken-3 left" id="DinnerHealthLabel6"><br></div>
 
-                            <b class="teal-text text-darken-3 ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal6"></span>
+                            <b class="white-text text-darken-4  ">Calories/Serving : </b><span class="text-darken-4" id="DinnerCal6"></span>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4"><b>Ingredients</b><i class="material-icons right">close</i></span>
                             <br>
-                            <span id="DinnerIngr6" class="left"></span>
+                            <span id="DinnerIngr6"   class="left list"></span>
                         </div>
                         <div class="card-action">
 
@@ -809,7 +813,7 @@
 
 
     </div>
-
+</main>
 
     <!-- End of Meal -->
     <footer>

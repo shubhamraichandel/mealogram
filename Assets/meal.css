@@ -1,6 +1,6 @@
 body {
     background-image: url("https://wallpaperaccess.com/full/557522.jpg");
-    background-position: center;
+    background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
  
@@ -35,7 +35,7 @@ nav{
 .mealbar > ul {
 
     
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.1);
   
 
   }

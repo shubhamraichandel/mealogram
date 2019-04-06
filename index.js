@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById("bmr-calculator").hidden = true;
 document.getElementById("meal").hidden = true;
 document.getElementById("calculator").hidden = false;
+document.getElementById("getMealPlan").hidden = true;
 
 var btnBmr = document.getElementById("btn-bmr");            // Btn for Calculating BMR
 var genderGroup = document.getElementsByName("group");      // Radio group
@@ -172,7 +173,12 @@ function recalculate(){
 
   };
 
-
+function mealPlan(){
+    document.getElementById("d").hidden = true;
+    document.getElementById("bmr-calculator").hidden = true;
+    document.getElementById("getMealPlan").hidden = false;
+  
+}
 
 
 /** End of BMR and BMI */
@@ -292,7 +298,7 @@ var testJson;
 //Function for Single Query Call
 function execute(){
     buildQ();
-
+    document.getElementById("getMealPlan").hidden = true;
     document.getElementById("meal").hidden = false;
 
     for(var i = 0 ;i<mealCount; i++)
